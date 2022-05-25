@@ -1,0 +1,41 @@
+
+.tr-data:nth-child(odd) {
+  background: #eeeeee;
+}
+::ng-deep .table {
+  border-color: black;
+  border: 2px solid black;
+}
+td,th {
+  border-right: 2px solid black;
+}
+::ng-deep .mat-sort-header-container {
+    padding-left:0px !important;
+}
+mat-icon{
+    cursor:pointer;
+    font-size:22px !important;
+}
+.delete-icon:hover {
+  color: red;
+}
+.edit-icon:hover{
+    color:blue;
+}
+.mat-flat-button {
+  background-color: #80808030 !important;
+}
+.add-student {
+  bottom: 8px;
+  left: 8px;
+}
+.c-head{
+  display:flex;
+}
+.container {
+  min-width: 710px !important;
+  padding-top: 10px;
+}
+h3 {
+  color:#3f51b5;
+}

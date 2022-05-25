@@ -1,0 +1,83 @@
+<h1 mat-dialog-title>Add/Edit Student</h1>
+<mat-tab-group animationDuration="0ms">
+    <mat-tab label="Student Info">
+      <br />
+      <form [formGroup]="studentPersonalDetailsForm" (ngsubmit)="saveStudentDetails()">
+        <div mat-dialog-content>
+          <div class="container">
+            <div class="row form-group">
+              <input class="form-control col-sm-5" formControlName="firstname" type="text" name="firstname" [(ngModel)]="this.studentDetails.firstname" value="" placeholder="First Name">
+              <input class="form-control col-sm-5" formControlName="lastname" type="text" name="lastname" [(ngModel)]="this.studentDetails.lastname" value="" placeholder="Last Name" />
+              <mat-select class="form-control col-sm-5" name="grade" formControlName="grade"  placeholder="Grade" [(ngModel)]="this.studentDetails.grade">
+                <mat-option [value]="grade.value" *ngFor="let grade of grades">{{ grade.name }}</mat-option>
+              </mat-select>
+              <mat-select class="form-control col-sm-5" name="division" formControlName="division" placeholder="Division" [(ngModel)]="this.studentDetails.division">
+                <mat-option [value]="division.value" *ngFor="let division of divisions">{{ division.name }}</mat-option>
+              </mat-select>
+              <div class="date-picker">
+                <input class="form-control col-sm-5" name="dob" [(ngModel)]="this.studentDetails.dob" formControlName="dob"
+                       [matDatepicker]="basicDatepicker" [max]="defaultDate" placeholder="Date of Birth">
+                <mat-datepicker-toggle [for]="basicDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #basicDatepicker></mat-datepicker>
+              </div>
+              <mat-radio-group class="mat-radio col-sm-5" name="gender" formControlName="gender" [(ngModel)]="this.studentDetails.gender">
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+      </form>
+      <hr />
+        <div mat-dialog-actions align="end" class="footer">
+          <button mat-flat-button class="cancel" (click)="onCancel()">Cancel</button>
+          <button mat-flat-button color="primary" [disabled]="studentPersonalDetailsForm.invalid || addActivities.length==0 ||
+                !addActivities[0]?.selectedActivity || !addActivities[0]?.from"
+                  (click)="saveStudentDetails()" align="end">
+            <mat-icon>save</mat-icon> Save
+          </button>
+        </div>
+
+    </mat-tab>
+    <mat-tab label="Extra Curricular">
+      <br />
+      <form name="extraCurricularActivityForm" (ngsubmit)="saveStudentDetails()">
+        <div mat-dialog-content>
+          <div class="container">
+            <div class="row form-group">
+              <mat-card class="col-sm-5" *ngFor="let addActivity of addActivities;let i=index;">
+                <mat-icon align="end" class="mat-close-icon" (click)="removeActivity(i)">close</mat-icon>
+                <mat-select placeholder="Select Activity" name="activity_{{i}}" id="activity_{{i}}"
+                            [(ngModel)]="addActivity.selectedActivity" class="form-control mat-select-style">
+                  <mat-option [value]="activity.value" *ngFor="let activity of activities">{{ activity.name }}</mat-option>
+                </mat-select>
+                <div class="mat-input-group">
+                  <select class="form-control mat-select-input" [(ngModel)]="addActivity.from"
+                          (change)="changeFromTime($event,i)"
+                          name="from_{{i}}" [value]="addActivity.from" style="color:grey">
+                    <option value="" disabled hidden>From</option>
+                    <option *ngFor="let time of timings" [value]="time.from">{{time.from}}</option>
+                  </select>
+                  <input class="form-control mat-select-input" [(ngModel)]="addActivity.to" type="text" style="color:grey"
+                         name="to_{{i}}" [value]="addActivity.to" placeholder="To" disabled />
+                </div>
+              </mat-card>
+              <div align="end">
+                <button mat-flat-button class="add-activity" align="end"
+                        (click)="addActivity($event)" [disabled]="addActivities.length>=4">
+                <mat-icon>add</mat-icon> Add Activity</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <hr />
+      <div mat-dialog-actions align="end" class="footer">
+        <button mat-flat-button class="cancel" (click)="onCancel()">Cancel</button>
+        <button mat-flat-button color="primary" [disabled]="studentPersonalDetailsForm.invalid || addActivities.length==0 ||
+                !addActivities[0]?.selectedActivity || !addActivities[0]?.from"
+                (click)="saveStudentDetails()" align="end"><mat-icon>save</mat-icon> Save</button>
+      </div>
+    </mat-tab>
+</mat-tab-group>
+

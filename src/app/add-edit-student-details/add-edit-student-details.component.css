@@ -1,0 +1,121 @@
+::ng-deep .mat-tab-body-content
+{
+    overflow:hidden !important;
+}
+input, mat-select {
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+mat-card {
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  border: 1px solid #80808082;
+  padding:14px;
+  padding-top:0px !important
+}
+.cancel {
+  background-color: #80808030;
+}
+.add-activity {
+  min-width: 135px !important;
+  background-color: #80808030;
+  margin-right: 15px;
+  position: fixed;
+  right: 20px;
+  bottom: 106px;
+}
+.col-sm-5 {
+  width: 41.67% ;
+}
+mat-select {
+  height: fit-content;
+}
+::ng-deep .mat-tab-label-active {
+  background-color: #eeeeee !important;
+}
+::ng-deep .cdk-overlay-pane {
+  transform: translateX(-16px) translateY(-12px) !important;
+}
+.mat-datepicker-toggle{
+    margin-left:-4.5rem;
+}
+.date-picker {
+  display: contents;
+}
+  .mat-radio {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 2rem;
+  }
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: #3f51b5;
+}
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #3f51b5;
+}
+.footer{
+    justify-content:space-between !important;
+}
+form {
+  overflow-x: hidden;
+  height: 311px;
+}
+::ng-deep .mat-icon{
+    height:22px !important;
+    font-size:21px !important
+}
+::ng-deep .mat-dialog-actions{
+    padding-top:0px !important;
+    padding-bottom:0px !important;
+    margin-bottom:0px !important
+     
+}
+::ng-deep .mat-dialog-container{
+    overflow:hidden;
+}
+
+::ng-deep .mat-select-placeholder {
+  color: #757575 !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.mat-select-style {
+  margin-bottom: 1rem !important;
+  height: 34px !important;
+  width:100% !important;
+}
+.mat-select-input {
+  width: 47% !important;
+  height: 34px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px !important
+}
+.mat-input-group {
+  display: flex;
+  justify-content: space-between;
+}
+.mat-close-icon {
+  font-size: 14px !important;
+  height: 18px !important;
+  width: 100%;
+  cursor: pointer;
+}
